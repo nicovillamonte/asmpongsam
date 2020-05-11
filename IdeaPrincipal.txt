@@ -1,0 +1,16 @@
+Menu:
+  *Jugar
+  *Configuraciones:
+      Velocidad de la bola/paletas
+      Multiplayer/Contr PC:
+        Dificultad (En caso de jugar vs maquina)
+      Puntaje de victoria
+      Idioma (Espaniol, ingles)
+  *Salir
+  *Creditos
+  
+  
+  Mas Adelante:
+    *Poner colores a las paletas, pelota, diferentes escenarios.....
+    
+    
