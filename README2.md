@@ -1,2 +1,0 @@
-# asmpongsam
-ASM pong UNSAM
