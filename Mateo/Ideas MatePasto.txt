@@ -1,0 +1,11 @@
+Ideas de mateo:
+
+- Codigo fuente
+- Empezar partida
+- Velocidad
+- Jg vs Jg (Dos teclas simultaneas)
+- Terminar partida, volver al menu
+- Eleccion de modo de juego
+- Puntaje
+- Easter eggs
+- Condicion de victoria
