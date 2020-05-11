@@ -1,6 +1,6 @@
 Ideas de mateo:
 
-- Codigo fuente
+- Codigo fuente (Fundamental)
 - Empezar partida
 - Velocidad
 - Jg vs Jg (Dos teclas simultaneas)
@@ -8,4 +8,4 @@ Ideas de mateo:
 - Eleccion de modo de juego
 - Puntaje
 - Easter eggs
-- Condicion de victoria
+- Condicion de victoria (Eleccion de puntaje)
