@@ -1,5 +1,7 @@
 Ideas de mateo:
 
+   /Fundamental/
+
 - Codigo fuente (Fundamental)
 - Empezar partida
 - Velocidad
@@ -9,3 +11,10 @@ Ideas de mateo:
 - Puntaje
 - Easter eggs
 - Condicion de victoria (Eleccion de puntaje)
+
+   /A futuro/
+
+- Niveles
+- Colores
+- Subida de nivel
+- Skins
