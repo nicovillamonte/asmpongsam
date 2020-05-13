@@ -1,0 +1,14 @@
+INT 21h     Funcionalidades generales del DOS.
+INT 16h     Manejo del teclado.
+INT 17h     Manejo de la impresora.
+INT 1Ah     Manejo del reloj.
+INT 11h     Servicios de la lista de elementos de la computadora
+INT 12h     Servicios para el calculo del tamaño de la memoria
+INT 05h     Impresion de la informacion contenida en la pantalla
+INT 18h     Activacion del lenguaje Interprete Basic de la ROM
+INT 19h     Activacion de la rutina de arranque de la computadora
+INT 20h     Termina la ejecucion del programa .COM
+
+
+Puertos de E/S:
+  60h y 61h     Puerto del buffer del teclado.
