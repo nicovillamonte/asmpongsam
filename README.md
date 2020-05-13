@@ -1,2 +1,2 @@
-# asmpongsam
+# GruPong
 ASM pong UNSAM
