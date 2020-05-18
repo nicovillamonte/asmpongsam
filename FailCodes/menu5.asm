@@ -4,8 +4,8 @@
 .data
 	;Vectores que contienen los datos para escribir los pixeles.
 	;El programa opera bien, pero utiliza vectores muy grandes en casos que no hacen falta. - Largo / Direc -
-	ValorDeX dw 101d, 116d, 162d, 117d, 192d, 267d, 207d, 207d, 297d, 387d, 312d, 417d, 432d, 432d, 507d, 462d, 24h
-	ValorDeY dw 075d, 075d,091d, 121d, 091d, 091d, 075d, 166d, 075d, 075d, 091d, 091d, 075d, 165d, 120d, 120d, 24h
+	PosX dw 101d, 116d, 162d, 117d, 192d, 267d, 207d, 207d, 297d, 387d, 312d, 417d, 432d, 432d, 507d, 462d, 24h
+	PosY dw 075d, 075d,091d, 121d, 091d, 091d, 075d, 166d, 075d, 075d, 091d, 091d, 075d, 165d, 120d, 120d, 24h
 	Largo dw 7, 3, 3, 3, 5, 5, 4, 4, 7, 7, 5, 5, 5, 5, 3, 3, 24h
 	Direc dw 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 2, 0, 1, 1, 0, 1, 24h
 	
@@ -100,8 +100,8 @@ Inicio:
 		xor si, si
 
 AwanteFabio:													;Bloque de lectura de datos.
-		mov cx, ValorDeX[si]
-		mov dx, ValorDeY[si]
+		mov cx, PosX[si]
+		mov dx, PosY[si]
 		call EstructuraLetra
 		add si, 2
 		cmp Direc[si], 24h
