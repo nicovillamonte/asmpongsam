@@ -1,0 +1,42 @@
+.8086
+.model small
+.stack 100h
+.data
+
+.code
+public setCoord
+extrn getCoord:proc
+extrn getPos:proc
+extrn getPosXY:proc
+extrn chgCoord:proc
+extrn fillSq:proc
+extrn Draw:proc
+
+   main proc
+             ;no hago nada
+   main endp
+
+setCoord proc
+     ;esta funcion recibira el valor ASCII a posicionar en AL por la funcion chgCoord
+     ;recibira las coordenadas (x,y) BL y BH de la funcion getPosXY
+     ;estas coordenadas las enviara a la funcion getPos para recibir la posicion en DX
+     ;con la posicion en DX y el valor ASCII en AL, modificamos el vector SCREEN 
+     ;luego refrescamos la pantalla con la funcion Draw
+    
+    push ax
+    push bx
+    push DX
+
+    call getPos  ;envio DL y DH a getPos y recibo DX
+
+    mov bx, DX               ;
+    mov SCREEN[bx], al       ;modifico el vector SCREEN ingresando el ASCII obtenido en AL
+
+    call Draw    ;refrescamos la pantalla
+
+    pop DX
+    pop bx
+    pop ax
+    ret
+setCoord endp
+end main
