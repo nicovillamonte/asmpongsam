@@ -7,7 +7,7 @@
 public chgCoord
 extrn getCoord:proc
 extrn setCoord:proc
-
+extrn Draw:proc
 main proc
 		; No hace nada.
 main endp 
@@ -64,6 +64,9 @@ chgCoord proc
         ;Muevo valor ASCII de las coord(x1,y1) a (x2,y2).
         call setCoord
 
+        ;Refresco pantalla.
+        call Draw
+        
 		;pop di
         ;pop si
         pop dx

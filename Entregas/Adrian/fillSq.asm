@@ -6,7 +6,7 @@
 .code
 public fillSq
 extrn setCoord:proc
-
+extrn Draw:proc
 main proc
 		; No hace nada. 
 main endp 
@@ -44,7 +44,10 @@ fillSq proc
 
         ;Reescribo el valor ASCII en las coord (x2,y2)
         call setCoord
-    
+        
+        ;Refresco pantalla.
+        call Draw
+
         ;pop di
         ;pop si
         pop dx
