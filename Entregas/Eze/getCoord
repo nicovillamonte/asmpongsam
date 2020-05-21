@@ -1,0 +1,37 @@
+.8086
+.model small
+.stack 100h
+.data
+
+.code
+public getCoord
+extrn setCoord:proc
+extrn Draw:proc
+extrn chgCoord:proc
+extrn getPos:proc
+extrn getPosXY:proc
+extrn fillSq:proc
+
+   main proc
+;no hago nada
+   main endp
+    
+   getCoord proc
+       ;esta funcion recibira las coordenadas (x,y) DL, DH
+       ;y devuelve el valor ASCII de esa posicion en AL
+       
+       push ax
+       push bx
+       push dx
+
+       mov bx, dx
+       mov al, SCREEN[bx]  ;devuelvo el valor ASCII
+
+       call Draw   ;refresco pantalla
+
+       pop dx
+       pop bx
+       pop ax
+       ret
+   getCoord endp
+   end main
