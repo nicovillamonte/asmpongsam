@@ -134,7 +134,7 @@ clrzf proc
 	
 	pushf
 	pop bx
-	mov al,01000000b
+	mov al,10111111b
 	xor bl,al
 	push bx
 	popf
