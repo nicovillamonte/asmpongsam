@@ -1,37 +1,45 @@
+;--------------------------------------------------------------------------------------------------------------------------------
+;TONO.ASM genera un tono por el parlante de la PC
+;	Parámetros:
+;		FREC 			= 1193180/200 = 5965 --> Tono de 200 Hz
+;							= 1193180/1200 = 1000 --> Tono de 1200 Hz
+;		DURACION	= Duración del tono en centésimas de segundo
+;--------------------------------------------------------------------------------------------------------------------------------
 .8086
 .model small
 .stack 100h
 .data
-tfinal			db 4 dup (30) 		;inicializa la hora final
+tfinal			db 4 dup (30) 		;vector de la hora final
+FREC			EQU 5965			
+DURACION	EQU 8
 
 .code
 
 main proc
-	MOV	AX,@data
-	MOV	DS, AX
+	mov ax, @data
+	mov ds, ax
 	
-	IN AL, 61h	;Estado del parlante
-	PUSH AX 	;Guardar en la pila
+	in al, 61h	;Estado del parlante
+	push ax 	;Guardar en la pila
 	
-	;MOV BX, 1000	;1193180/1200 hz --> Cálculo del valor a colocar en BX según la frecuencia deseada
-	MOV BX, 5965	;1193180/200 hz --> Cálculo del valor a colocar en BX según la frecuencia deseada
-	MOV AL, 6Bh		;Selección de Canal 2, write LSB/MSB mode 3
-	OUT 43h, AL
-	MOV AX, BX
-	OUT 24h, AL		;Se envía el LSB
-	MOV AL, AH 
-	OUT 42h, AL		;Se envía el MSB
-	IN AL, 61h			;Get the 8255 Port Contence
-	OR AL, 3h     
-	OUT 61h, AL		;Enable speaker and use clock channel 2 for input
+	mov bx, FREC	
+	mov al, 6Bh				;Selección de Canal 2, write LSB/MSB mode 3
+	out 43h, al
+	mov ax, bx
+	out 24h, al				;Se envía el LSB
+	mov al, ah 
+	out 42h, al				;Se envía el MSB
+	in al, 61h					;Get the 8255 Port Contence
+	or al, 3h     
+	out 61h, al				;Enable speaker and use clock channel 2 for input
 	
-	mov	bh, 3			;Espera de 3 centésimas de segundo
-	call 	ESPERA2		;Llamado a espera
+	mov bh, DURACION	;Espera de 3 centésimas de segundo
+	call ESPERA2				;Llamado a espera
 	
-	POP AX				;Se restaura el estado del parlante
-	OUT 61h, AL
+	pop ax						;Se restaura el estado del parlante
+	out 61h, al
 
-	mov ax,4C00h
+	mov ax, 4C00h
 	int 21h
 main endp
 
