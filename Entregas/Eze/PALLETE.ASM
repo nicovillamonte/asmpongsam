@@ -47,9 +47,9 @@ getPalettePos endp
 goUp proc ;esta funcion tiene como objetivo desplazar a la paleta un espacio hacia arriba
           ;se incrementa en uno la coordenada de la paleta seleccionada
           ;recibiremos en DI el offset del objeto paleta
-	inc [DI+01h]
-	call refreshPalette  ;refrescamos la paleta para que los cambios sean visibles
-	ret
+    inc [DI+01h]
+    call refreshPalette  ;refrescamos la paleta para que los cambios sean visibles
+    ret
 goUp endp
 
 ;-----------------------------------------------------------------
@@ -58,8 +58,8 @@ goDown proc ;esta funcion tiene como objetivo desplazar a la paleta un espacio h
             ;se decrementa en uno la coordenada de la paleta seleccionada
             ;recibiremos en DI el offset del objeto paleta
     dec [DI+01h]
-	call refreshPalette  ;refrescamos la paleta para que los cambios sean visibles
-	ret
+    call refreshPalette  ;refrescamos la paleta para que los cambios sean visibles
+    ret
 goDown endp
 ;-----------------------------------------------------------------
 
