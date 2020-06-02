@@ -7,9 +7,11 @@
 		coordY	db 	?
 		graf	db	?
 		largo 	db 	?
+		old_Coordx db ?
+		old_Coordy db ? 
 	ENDS
-	pallete1 PALETTE <01d,00d,0DEh,03d>
-	pallete2 PALETTE <78d,00d,0DDh,03d>
+	pallete1 PALETTE <01d,00d,0DEh,03d,01d,00d>
+	pallete2 PALETTE <78d,00d,0DDh,03d,78d,00d>
 .code
 INCLUDE GROUND.ASM		;Se pueden utilizar las funciones de GROUND.asm
 
@@ -27,68 +29,38 @@ main endp
 refreshPalette proc
 		Pushf
         Push ax
-        Push bx
+        ;Push bx
         Push cx
         Push dx
-        Push si
+        ;Push si
         ;push di
 
         mov ax, 00h
-        mov bx, 00h
-        cmp [di+2], 0deh
-        je busca1
-        jmp busca2
+       	mov cx, [di+03h]
 
-
-busca1: 
-        mov dh, 01h
-		mov dl, 00h
-		call getCoord
-		cmp al, 0deh
-		je cambio1 
-		inc dl
-		jmp busca1
-
-busca2: 
-		mov dh, 78d
-		mov dl, 00h
-		call getCoord
-		cmp al, 0ddh
-		je cambio2 
-		inc dl
-		jmp busca2
-
-cambio1: 
+limpia:
 		mov al, 20h
+		mov dh, [di+04h]
+		mov dl, [di+05h]
 		call setCoord
-		add bh, 01h
-		cmp bh, 03h
-		je escribe
-		jmp busca1
+		inc dl
+		loop limpia
 
-cambio2: 
-		mov al, 20h
-		call setCoord
-		add bl, 01h
-		cmp bl, 03h
-		je escribe
-		jmp busca2
+		mov cx, [di+03h]
+		mov dh, [di+00h]
+		mov dl, [di+01h]
+		mov al, [di+02h]
 
 escribe: 
-		mov cx, [di+3]
-		mov dh, [di]
-		mov dl, [di+1]
-sigue: 
-		mov al, [di+2]
 		call setCoord
 		inc dl
 		loop sigue
 fin: 
         ;pop di
-        pop si
+        ;pop si
         pop dx
         pop cx
-        pop bx
+        ;pop bx
         pop ax
         popf
         ret  	
