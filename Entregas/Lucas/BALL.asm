@@ -84,6 +84,7 @@ setBallDirec proc ;Preguntar
 	
 	xor bx,bx ; Limpio Registros
 	xor cx,cx ; (no necesario)
+	xor dx,dx ;
 	
 	mov bx,ss:[bp+8] ;recupero dato de la pila
 	cmp bx,0FFh		 ;compara con el valor maximo
