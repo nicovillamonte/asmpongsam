@@ -5,13 +5,13 @@
 	BALL STRUC
 		coordx		 db ?
 		coordY		 db ?
-		graf		 db	?
-		direccion	 db	?
-		sentido 	 db	2 dup (?)
+		graf		 db ?
+		direccion	 db ?
+		sentido 	 db 2 dup (?)
 		old_coordX 	 db ?
 		old_coordY	 db ?
-		backup_ASCII db ?
-		memoryFlag   db 2 dup (?)
+		backup_ASCII     db ?
+		memoryFlag       db 2 dup (?)
 	ENDS
 	Pelota BALL <00d,00d,0DEh,03d>		;Esto no existira en este codigo.
 .code
