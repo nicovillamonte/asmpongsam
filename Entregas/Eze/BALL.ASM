@@ -75,7 +75,7 @@ setBallPos proc ;esta funcion recibe en DI el offset del objeto pelota
 
 	mov byte ptr[DI], DH   ;cambio coordenadas X
 	mov byte ptr[DI+01h], DL  ;cambio coordenadas Y
-    jmp finalizo
+        jmp finalizo
 	miro_coordenadaY2:
 	cmp DL, 0FFh
 	je finalizo
