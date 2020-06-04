@@ -3,13 +3,13 @@
 .stack 100h
 .data
 	BALL STRUC
-		coordx		   db ?
-		coordY		   db ?
-		graf		     db	?
-		direccion	   db	?
-		sentido 	   db	2 dup (?)
-		old_coordX 	 db ?
-		old_coordY	 db ?
+		coordx	     db ?
+		coordy       db ?
+		graf	     db	?
+		direccion    db	?
+		sentido      db	2 dup (?)
+		old_coordX   db ?
+		old_coordY   db ?
 		backup_ASCII db ?
 		memoryFlag   db 2 dup (?)
 	ENDS
